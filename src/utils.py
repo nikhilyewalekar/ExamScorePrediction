@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import os
+import sklearn
 
 class PredictExamScore():
     def __init__(self):
@@ -60,9 +61,17 @@ class PredictExamScore():
         self.test_df = pd.DataFrame(test_array, columns = feature)
 
     def load_model(self):
-        filepath = os.path.join("artifacts", "Linear_reg_model.pkl")
-        with open(filepath, "rb") as f:
-            self.model = pickle.load(f)
+        modelType = self.data["model_type"]
+        print("modelType :",modelType)
+        if modelType == "Linear":
+            filepath = os.path.join("artifacts", "Linear_reg_model.pkl")
+            with open(filepath, "rb") as f:
+                self.model = pickle.load(f)
+        elif modelType == "Descision":
+            filepath = os.path.join("artifacts", "Descision_Tree_reg_model.pkl")
+            with open(filepath, "rb") as f:
+                self.model = pickle.load(f)
+
 
 
         
