@@ -25,10 +25,8 @@ class PredictExamScore():
         test_array[0,3] = self.data["sleep_hours"]
 
         feature = self.model.feature_names_in_
-        print("Features : ", feature)
 
         gender = f'gender_{self.data["gender"]}'
-        print("Gender", gender)
         gender_index = np.where(feature == gender)[0]
         print("gender_index", gender_index)
         test_array[0,gender_index] = 1
@@ -72,10 +70,7 @@ class PredictExamScore():
             with open(filepath, "rb") as f:
                 self.model = pickle.load(f)
         elif modelType == "Knn":
-            filepath = os.path.join("artifacts", "Linear_reg_model.pkl")
+            filepath = os.path.join("artifacts", "knn_reg_model.pkl")
             with open(filepath, "rb") as f:
                 self.model = pickle.load(f)
 
-
-
-        
