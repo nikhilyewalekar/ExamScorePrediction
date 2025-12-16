@@ -71,6 +71,10 @@ class PredictExamScore():
             filepath = os.path.join("artifacts", "Descision_Tree_reg_model.pkl")
             with open(filepath, "rb") as f:
                 self.model = pickle.load(f)
+        elif modelType == "Knn":
+            filepath = os.path.join("artifacts", "Linear_reg_model.pkl")
+            with open(filepath, "rb") as f:
+                self.model = pickle.load(f)
 
 
 
