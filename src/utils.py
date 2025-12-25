@@ -17,7 +17,7 @@ class PredictExamScore():
 
     def create_test_df(self):
         self.load_model()
-        test_array = np.zeros((1,self.model.input_shape[1]))
+        test_array = np.zeros((1,self.model.n_features_in_))
 
         test_array[0,0] = self.data["age"]
         test_array[0,1] = self.data["study_hours"]
