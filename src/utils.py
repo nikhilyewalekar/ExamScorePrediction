@@ -17,7 +17,7 @@ class PredictExamScore():
 
     def create_test_df(self):
         self.load_model()
-        test_array = np.zeros((1,self.model.n_features_in_))
+        test_array = np.zeros((1,self.model.input_shape[1]))
 
         test_array[0,0] = self.data["age"]
         test_array[0,1] = self.data["study_hours"]
@@ -43,7 +43,7 @@ class PredictExamScore():
         sleep_quality_index = np.where(feature == sleep_quality)[0]
         test_array[0,sleep_quality_index] = 1
 
-        study_method = f'sleep_quality_{self.data["study_method"]}'
+        study_method = f'study_method_{self.data["study_method"]}'
         study_method_index = np.where(feature == study_method)[0]
         test_array[0,study_method_index] = 1
 
